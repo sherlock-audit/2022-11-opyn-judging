@@ -139,7 +139,7 @@ Nice find. Fix lgtm.
 Source: https://github.com/sherlock-audit/2022-11-opyn-judging/issues/219 
 
 ## Found by 
-cccz, hyh, bin2chen, yixxas, libratus, joestakey, Zarf, KingNFT
+joestakey, bin2chen, hyh, libratus, KingNFT, Zarf, yixxas, cccz
 
 ## Summary
 
@@ -363,7 +363,7 @@ Fix accepted
 Source: https://github.com/sherlock-audit/2022-11-opyn-judging/issues/148 
 
 ## Found by 
-rvierdiiev, hyh, Jeiwan, yixxas, 0x52, Met, indijanc, chainNue, rotcivegaf, adriro, KingNFT
+indijanc, rotcivegaf, hyh, chainNue, rvierdiiev, Met, 0x52, KingNFT, Jeiwan, adriro, yixxas
 
 ## Summary
 
@@ -436,7 +436,7 @@ FIx accepted
 Source: https://github.com/sherlock-audit/2022-11-opyn-judging/issues/6 
 
 ## Found by 
-thec00n, cccz, John, hyh, Atarpara, aviggiano, HonorLt, jonatascm, indijanc, reassor, rotcivegaf, Haruxe, minhtrng, adriro
+bin2chen, hyh, hansfriese, aviggiano, caventa, thec00n, indijanc, rotcivegaf, kaliberpoziomka, chainNue, John, adriro, Atarpara, cccz, \_\_141345\_\_, Haruxe, zimu, minhtrng, HonorLt, ctf\_sec, imare, reassor, jonatascm
 
 ## Summary
 The `checkOrder()` function performs verification of pre-signed orders. This function allows anyone to set the status of an order as used by storing the nonce contained in the order. Orders and their respective nonce can only be used once.  
@@ -470,6 +470,62 @@ fix https://github.com/opynfinance/squeeth-monorepo/pull/806
 
 Fix lgtm.
 
+**SecurityDat**
+
+Escalate for 10 USDC
+
+I have two issues classfied to https://github.com/sherlock-audit/2022-11-opyn-judging/issues/60. I think one of them (https://github.com/sherlock-audit/2022-11-opyn-judging/issues/51) is exactly about this issue https://github.com/sherlock-audit/2022-11-opyn-judging/issues/6.
+
+Please rejudge https://github.com/sherlock-audit/2022-11-opyn-judging/issues/51. It is about submitting calls to `checkorder()` to make orders from other market makers invalid.
+
+
+**sherlock-admin**
+
+ > Escalate for 10 USDC
+> 
+> I have two issues classfied to https://github.com/sherlock-audit/2022-11-opyn-judging/issues/60. I think one of them (https://github.com/sherlock-audit/2022-11-opyn-judging/issues/51) is exactly about this issue https://github.com/sherlock-audit/2022-11-opyn-judging/issues/6.
+> 
+> Please rejudge https://github.com/sherlock-audit/2022-11-opyn-judging/issues/51. It is about submitting calls to `checkorder()` to make orders from other market makers invalid.
+> 
+
+You've created a valid escalation for 10 USDC!
+
+To remove the escalation from consideration: Delete your comment.
+To change the amount you've staked on this escalation: Edit your comment **(do not create a new comment)**.
+
+You may delete or edit your escalation comment anytime before the 48-hour escalation window closes. After that, the escalation becomes final.
+
+**kaliberpoziomka**
+
+Escalate for 10 USDC
+The issue #132 I've submitted was classified to #60. I think it is this issue #6.
+Please rejudge #132, since it is about function `checkOrder(....)` marking nonces as used.
+
+**sherlock-admin**
+
+ > Escalate for 10 USDC
+> The issue #132 I've submitted was classified to #60. I think it is this issue #6.
+> Please rejudge #132, since it is about function `checkOrder(....)` marking nonces as used.
+
+You've created a valid escalation for 10 USDC!
+
+To remove the escalation from consideration: Delete your comment.
+To change the amount you've staked on this escalation: Edit your comment **(do not create a new comment)**.
+
+You may delete or edit your escalation comment anytime before the 48-hour escalation window closes. After that, the escalation becomes final.
+
+**hrishibhat**
+
+Escalation accepted
+
+**sherlock-admin**
+
+> Escalation accepted
+
+This issue's escalations have been accepted!
+
+Contestants' payouts and scores will be updated according to the changes made on this issue.
+
 
 
 # Issue M-1: Precision is lost in depositAuction and withdrawAuction user amount due calculations 
@@ -477,7 +533,7 @@ Fix lgtm.
 Source: https://github.com/sherlock-audit/2022-11-opyn-judging/issues/201 
 
 ## Found by 
-yixxas, CRYP70, hyh
+CRYP70, yixxas, hyh
 
 ## Summary
 
@@ -629,7 +685,7 @@ I think this should be set to medium severity, as the author suggests.
 Source: https://github.com/sherlock-audit/2022-11-opyn-judging/issues/156 
 
 ## Found by 
-Trumpero, HonorLt, \_\_141345\_\_, csanuragjain, zapaz, indijanc, reassor, Met, KingNFT
+indijanc, \_\_141345\_\_, Trumpero, reassor, Met, KingNFT, zapaz, csanuragjain, HonorLt
 
 ## Summary
 State variables `userDepositIndex` and `userWithdrawIndex` are growing indefinitely, this might lead to expensive transactions and effectively denial of service for the user when calling `withdrawUSCD` and `dequeueCrabs` functions that require iterations over the whole arrays.
@@ -668,7 +724,7 @@ Fix LGTM.
 Source: https://github.com/sherlock-audit/2022-11-opyn-judging/issues/83 
 
 ## Found by 
-thec00n, Jeiwan, dipp, Deivitto
+Deivitto, dipp, Jeiwan, thec00n
 
 ## Summary
 Users can deposit USDC and Crabv2 tokens at any time, but there are limitations around withdrawals. Users could have permanently locked up their funds if specific owner actions are not triggered. 
@@ -710,6 +766,53 @@ alternate fix: https://github.com/opynfinance/squeeth-monorepo/pull/809
 
 Comment for report: thec00n accepts the alternate fix. 
 
+**pauliax**
+
+Escalate for 2 USDC.
+
+"If the owner loses their key or becomes malicious and never calls these functions, then the users have no way of withdrawing their funds."
+
+When reviewing contracts we are advised not to report admin overprivileged issues as per official guidelines:
+![image](https://user-images.githubusercontent.com/22328890/206841830-7622a49a-cb2b-4cd9-8de3-de2fa5547e6a.png)
+
+Usually, such issues are acknowledged but closed, e.g. https://github.com/sherlock-audit/2022-10-illuminate-judging/issues/10
+
+
+**sherlock-admin**
+
+ > Escalate for 2 USDC.
+> 
+> "If the owner loses their key or becomes malicious and never calls these functions, then the users have no way of withdrawing their funds."
+> 
+> When reviewing contracts we are advised not to report admin overprivileged issues as per official guidelines:
+> ![image](https://user-images.githubusercontent.com/22328890/206841830-7622a49a-cb2b-4cd9-8de3-de2fa5547e6a.png)
+> 
+> Usually, such issues are acknowledged but closed, e.g. https://github.com/sherlock-audit/2022-10-illuminate-judging/issues/10
+> 
+
+You've created a valid escalation for 2 USDC!
+
+To remove the escalation from consideration: Delete your comment.
+To change the amount you've staked on this escalation: Edit your comment **(do not create a new comment)**.
+
+You may delete or edit your escalation comment anytime before the 48-hour escalation window closes. After that, the escalation becomes final.
+
+**hrishibhat**
+
+Escalation rejected
+
+The readme in this contest mentions the admin to be "restricted to specific actions", which changes the rules for this case, implying that the admin should not have access to or be able to influence actions like user withdrawals, which in this case it does. 
+
+**sherlock-admin**
+
+> Escalation rejected
+> 
+> The readme in this contest mentions the admin to be "restricted to specific actions", which changes the rules for this case, implying that the admin should not have access to or be able to influence actions like user withdrawals, which in this case it does. 
+
+This issue's escalations have been rejected!
+
+Watsons who escalated this issue will have their escalation amount deducted from their next payout.
+
 
 
 # Issue M-4: Used orders or revoked token authorizations can cause `withdrawAuction` and `depositAuction` to fail 
@@ -717,7 +820,7 @@ Comment for report: thec00n accepts the alternate fix.
 Source: https://github.com/sherlock-audit/2022-11-opyn-judging/issues/60 
 
 ## Found by 
-thec00n, kaliberpoziomka, hansfriese, bin2chen, ctf\_sec, seyni, \_\_141345\_\_, zimu, chainNue, Haruxe, imare, caventa
+indijanc, Haruxe, seyni, zimu, Jeiwan, thec00n
 
 ## Summary
 The owner must ensure that all orders are valid before submitting an auction, as a single order failure can revert an entire auction. The current implementation allows a market maker to invalidate their order by front-running an auction transaction, causing the auction to fail. Other ways to cause the auction functions to fail are listed below.  
